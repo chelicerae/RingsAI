@@ -123,8 +123,8 @@ def analyze_account(pinterest_account):
                 if counter > 0:
                     attr_analysis[attr_value] = counter
 
-            if len(attr_analysis) > 0:
-                attr_analysis = sorted(attr_analysis.items(), key=lambda x: x[1], reverse=True)
+            # if len(attr_analysis) > 0:
+            #     attr_analysis = sorted(attr_analysis.items(), key=lambda x: x[1], reverse=True)
 
                 data_analyzed[attr_name] = attr_analysis
     # else:

@@ -1,8 +1,14 @@
+import json
+
 import boto3
 # create a boto3 client
 # create the test queue
 # client.create_queue(QueueName='test_ids')
+from dynamodb_utils import push_record
 from main_scraper import analyze_account
+
+
+client_dynamo = boto3.resource('dynamodb', region_name='us-east-2')
 
 
 def get_queue_url(client, queue_name):
@@ -20,10 +26,20 @@ def start_reciever(client, queue_url):
             for message in messages['Messages']:  # 'Messages' is a list
                 # process the messages
                 pinterest_account = message['Body']
+                print('Message whole', message)
                 print('Pinterest account is', pinterest_account)
                 # next, we delete the message from the queue so no one else will process it again
                 data_analyzed = analyze_account(pinterest_account)
+
+                with open('data_analyzed.json', 'w') as f:
+                    json.dump(data_analyzed, f)
+
                 print('Data analyzed', data_analyzed)
+
+                table = client_dynamo.Table('PinterestAnalyzer')
+
+                push_record(table, message['MessageId'], pinterest_account, data_analyzed)
+
                 client.delete_message(QueueUrl=queue_url, ReceiptHandle=message['ReceiptHandle'])
         else:
             pass
