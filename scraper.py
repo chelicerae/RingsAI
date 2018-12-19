@@ -11,7 +11,7 @@ try:
 except ImportError:
     from six.moves.urllib.parse import urlparse
 
-DRIVER_PATH = "./chromedriver"
+DRIVER_PATH = "/home/ubuntu/RingsAI/chromedriver"
 
 
 def download(myinput, mydir="./"):
