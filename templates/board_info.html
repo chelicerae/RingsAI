@@ -1,0 +1,55 @@
+{% extends "index.html" %}
+
+{% block content %}
+   <div class="jumbotron">
+       <h3>Your account: <a style="cursor: pointer;">{{ board_link }}</a></h3>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Rings types are:</h3>
+                        {% for ring_type in ring_types %}
+                            <h4 style="cursor: pointer;"> Type: {{ ring_type[0] }}</h4>
+                            <h4 style="cursor: pointer;"> Occurences: {{ ring_type[1] }}</h4>
+                            <br/>
+                        {% endfor %}
+                </div>
+                <div class="col-md-4">
+                    <h3>Stone types are:</h3>
+                        {% for stone_type in stone_types %}
+                            <h4 style="cursor: pointer;"> Type: {{ stone_type[0] }}</h4>
+                            <h4 style="cursor: pointer;"> Occurences: {{ stone_type[1] }}</h4>
+                            <br/>
+                        {% endfor %}
+                </div>
+                <div class="col-md-4">
+                    <h3>Stone Shapes  are:</h3>
+                        {% for stone_shape in stone_shapes %}
+                            <h4 style="cursor: pointer;"> Type: {{ stone_shape[0] }}</h4>
+                            <h4 style="cursor: pointer;"> Occurences: {{ stone_shape[1] }}</h4>
+                            <br/>
+                        {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Ring Materials  are:</h3>
+                        {% for ring_material in ring_materials %}
+                            <h4 style="cursor: pointer;"> Type: {{ ring_material[0] }}</h4>
+                            <h4 style="cursor: pointer;"> Occurences: {{ ring_material[1] }}</h4>
+                            <br/>
+                        {% endfor %}
+                </div>
+                <div class="col-md-6">
+                    <h3>Colors  are:</h3>
+                        {% for color in colors %}
+                            <h4 style="cursor: pointer;"> Type: {{ color[0] }}</h4>
+                            <h4 style="cursor: pointer;"> Occurences: {{ color[1] }}</h4>
+                            <br/>
+                        {% endfor %}
+                </div>
+            </div>
+		<form action="/" id="to_return">
+               <button class="btn btn-primary" type="submit" form="to_return" style="margin: 10px 0px 1px 0px;">Want to try another one?</button>
+        </form>
+   </div>
+{% endblock %}

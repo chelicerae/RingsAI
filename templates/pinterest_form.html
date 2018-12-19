@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+
+{% block content %}
+            <div class="jumbotron">
+                <h1> Pinterest Account Analyzer</h1>
+                <form action="/analyze" method="POST">
+                    <label for="pinterest_link">Pinterest account name or link:</label>
+                    <input  name="account_name" type="text" class="form-control" id="account_name"  placeholder="Enter account name" style="margin: 10px 0px 15px 0px;" required/>
+                    <button type="submit" class="btn btn-primary" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing">Submit</button>
+                </form>
+            </div>
+{% endblock %}

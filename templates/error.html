@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+
+{% block content %}
+   <div class="jumbotron">
+        <h2>{{ error }}</h2>
+   		<form action="/" id="to_return">
+               <button class="btn btn-primary" type="submit" form="to_return" style="margin: 10px 0px 1px 0px;">Please try another one</button>
+        </form>
+   </div>
+{% endblock %}
