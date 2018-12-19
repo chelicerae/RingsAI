@@ -8,8 +8,7 @@ from dynamodb_utils import push_record
 from main_scraper import analyze_account
 
 
-client_dynamo = boto3.resource('dynamodb', aws_access_key_id='AKIAIVMLI3XEBFYF4ZWQ', aws_secret_access_key='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', region_name='us-east-2')
-
+client_dynamo = boto3.resource('dynamodb')
 
 def get_queue_url(client, queue_name):
     queues = client.list_queues(QueueNamePrefix=queue_name)  # we filter to narrow down the list
