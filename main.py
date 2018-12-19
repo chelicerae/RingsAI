@@ -12,8 +12,9 @@ from sqs_utils import get_queue_url, start_reciever, send_message_sqs
 
 app = Flask(__name__)
 
-client_sqs = boto3.client('sqs')
-client_dynamo = boto3.resource('dynamodb', region_name='us-east-2')
+
+client_sqs = boto3.client('sqs', aws_access_key_id='AKIAIVMLI3XEBFYF4ZWQ', aws_secret_access_key='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', region_name='us-east-2')
+client_dynamo = boto3.resource('dynamodb', aws_access_key_id='AKIAIVMLI3XEBFYF4ZWQ', aws_secret_access_key='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', region_name='us-east-2')
 
 sqs_queue_url = get_queue_url(client_sqs, SQS_QUEUE_NAME)
 
